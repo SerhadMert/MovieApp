@@ -34,7 +34,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
                 Resource.Status.SUCCESS ->{
                     binding.progressBar.gone()
                     if(response.data?.search?.size != 0){
-                        response.data.let { adapter.setMovies(it!!.search!!) }
+                        response.data.let { it?.search?.let { it1 -> adapter.setMovies(it1) } }
                         binding.rvMovieList.adapter = adapter
                     }
                 }
@@ -53,11 +53,16 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                //Api returns movies if search has more than 2 characters
                 if(!newText.isNullOrEmpty() && newText.length > 2) {
                     getMovies(newText)
+                    binding.rvMovieList.show()
+                } else {
+                    binding.rvMovieList.gone()
                 }
                 return true
             }
         })
     }
+
 }

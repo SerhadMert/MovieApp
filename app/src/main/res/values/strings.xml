@@ -2,4 +2,9 @@
     <string name="app_name">MovieApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="year">Year:</string>
+    <string name="director">Director:</string>
+    <string name="writer">Writer:</string>
+    <string name="rated">Rated:</string>
+    <string name="back">Back</string>
 </resources>

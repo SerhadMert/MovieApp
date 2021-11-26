@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nestedScrollingEnabled="true"
+    app:layoutDescription="@xml/fragment_movie_detail_scene"
+    tools:context=".ui.fragments.MovieDetailFragment"
+    android:id="@+id/motion_base"
+    android:background="@color/color_background">
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        android:background="@null"
+        android:elevation="5dp"
+        android:minWidth="48dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/back" />
+
+
+    <ImageView
+        android:id="@+id/image_poster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_background"/>
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_poster"
+        tools:text="I'm a film"/>
+
+    <TextView
+        android:id="@+id/view_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:text="@string/year"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"/>
+
+    <TextView
+        android:id="@+id/text_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/view_year"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        tools:text="Year"/>
+
+    <TextView
+        android:id="@+id/view_director"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:text="@string/director"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_year"/>
+
+    <TextView
+        android:id="@+id/text_director"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/view_director"
+        app:layout_constraintTop_toBottomOf="@+id/view_year"
+        tools:text="Director"/>
+
+    <TextView
+        android:id="@+id/view_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:text="@string/writer"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_director"/>
+
+    <TextView
+        android:id="@+id/text_writer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/view_writer"
+        app:layout_constraintTop_toBottomOf="@+id/text_director"
+        tools:text="Writer"/>
+
+    <TextView
+        android:id="@+id/view_rated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/view_writer"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/rated"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/text_rated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/view_writer"
+        app:layout_constraintStart_toEndOf="@+id/view_rated"
+        tools:text="Rated"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/text_plot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_rated"
+        android:textColor="@color/white"
+        tools:text="asasasdasdasd"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_genre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/text_plot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_genre"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ratings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rv_genre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_rating"/>
+
+
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
+
+
