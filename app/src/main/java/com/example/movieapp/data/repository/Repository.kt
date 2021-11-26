@@ -7,14 +7,12 @@ import javax.inject.Inject
 class Repository
 @Inject constructor(private var apiDataSource: ApiDataSource){
 
-    fun getMoviesBySearch(apiKey: String,title: String,page: Int) = performNetworkOperation {
+    fun getMoviesBySearch(title: String,page: Int) = performNetworkOperation {
 
-        apiDataSource.getMoviesByQuery(apiKey,title,page)
+        apiDataSource.getMoviesByQuery(title,page)
     }
 
-    fun getMovieByImdbId(id: Int) = performNetworkOperation {
+    fun getMovieByImdbId(id: String) = performNetworkOperation {
         apiDataSource.getMovieByImdbId(id)
     }
-
-
 }

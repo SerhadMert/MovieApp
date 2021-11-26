@@ -6,11 +6,11 @@ import javax.inject.Inject
 class ApiDataSource
 @Inject constructor(private val apiService: ApiService): BaseDataSource(){
 
-    suspend fun getMoviesByQuery(apiKey: String,title: String,page: Int) = getResult {
-        apiService.getMoviesByQuery(apiKey,title,page)
+    suspend fun getMoviesByQuery(title: String,page: Int) = getResult {
+        apiService.getMoviesByQuery(title,page)
     }
 
-    suspend fun getMovieByImdbId(id: Int) = getResult {
+    suspend fun getMovieByImdbId(id: String) = getResult {
         apiService.getMovieByImdbId(id)
     }
 }

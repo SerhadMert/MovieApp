@@ -16,6 +16,6 @@ class MovieListViewModel
     var page = 1
 
     fun getMoviesByQuery(title: String): LiveData<Resource<Movie>>{
-        return repository.getMoviesBySearch(Constants.API_KEY,title,page)
+        return repository.getMoviesBySearch(title,page)
     }
 }
