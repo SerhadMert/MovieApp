@@ -26,9 +26,10 @@
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
         android:background="@null"
-        android:elevation="5dp"
+        android:elevation="15dp"
         android:minWidth="48dp"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,27 +60,27 @@
         tools:text="I'm a film"/>
 
     <TextView
-        android:id="@+id/view_year"
+        android:id="@+id/view_released"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginStart="8dp"
         android:textColor="@color/white"
-        android:text="@string/year"
+        android:text="@string/released"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_title"/>
 
     <TextView
-        android:id="@+id/text_year"
+        android:id="@+id/text_released"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginStart="8dp"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/view_year"
+        app:layout_constraintStart_toEndOf="@+id/view_released"
         app:layout_constraintTop_toBottomOf="@+id/text_title"
-        tools:text="Year"/>
+        tools:text="Released"/>
 
     <TextView
         android:id="@+id/view_director"
@@ -91,7 +92,7 @@
         android:text="@string/director"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_year"/>
+        app:layout_constraintTop_toBottomOf="@+id/view_released"/>
 
     <TextView
         android:id="@+id/text_director"
@@ -101,7 +102,7 @@
         android:layout_marginStart="8dp"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/view_director"
-        app:layout_constraintTop_toBottomOf="@+id/view_year"
+        app:layout_constraintTop_toBottomOf="@+id/view_released"
         tools:text="Director"/>
 
     <TextView
