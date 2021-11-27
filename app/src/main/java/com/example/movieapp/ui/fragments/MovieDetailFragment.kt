@@ -54,7 +54,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>
                                 .into(imagePoster)
                             textWriter.text = it.writer
                             textDirector.text = it.director
-                            textYear.text = it.year
+                            textReleased.text = it.released
                             textRated.text = it.rated
                             textPlot.text = it.plot
                             textTitle.text = it.title

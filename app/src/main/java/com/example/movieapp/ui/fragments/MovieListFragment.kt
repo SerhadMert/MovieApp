@@ -25,6 +25,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initSearch()
+        initRV()
     }
 
     private fun getMovies(title:String){
@@ -35,7 +36,6 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
                     binding.progressBar.gone()
                     if(response.data?.search?.size != 0){
                         response.data.let { it?.search?.let { it1 -> adapter.setMovies(it1) } }
-                        binding.rvMovieList.adapter = adapter
                     }
                 }
                 Resource.Status.ERROR -> {
@@ -65,4 +65,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
         })
     }
 
+    private fun initRV(){
+        binding.rvMovieList.adapter = adapter
+    }
 }
