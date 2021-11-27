@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.example.movieapp.utils.setActionBarTitle
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 

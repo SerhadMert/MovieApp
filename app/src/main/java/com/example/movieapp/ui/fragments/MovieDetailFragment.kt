@@ -15,6 +15,7 @@ import com.example.movieapp.ui.adapter.RatingAdapter
 import com.example.movieapp.ui.viewmodels.MovieDetailViewModel
 import com.example.movieapp.utils.Resource
 import com.example.movieapp.utils.gone
+import com.example.movieapp.utils.setActionBarTitle
 import com.example.movieapp.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -34,6 +35,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>
         super.onViewCreated(view, savedInstanceState)
         getMovieById()
         initBack()
+        setActionBarTitle("Movie Detail")
     }
 
     private fun getMovieById(){
@@ -78,5 +80,4 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>
             findNavController().popBackStack()
         }
     }
-
 }
