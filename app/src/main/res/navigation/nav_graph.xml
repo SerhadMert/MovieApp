@@ -9,10 +9,12 @@
         android:id="@+id/movieListFragment"
         android:name="com.example.movieapp.ui.fragments.MovieListFragment"
         android:label="fragment_movie_list"
-        tools:layout="@layout/fragment_movie_list" >
+        tools:layout="@layout/fragment_movie_list">
         <action
             android:id="@+id/action_movieListFragment_to_movieDetailFragment"
-            app:destination="@id/movieDetailFragment" />
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"

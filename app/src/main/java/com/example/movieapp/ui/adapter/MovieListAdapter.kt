@@ -14,27 +14,27 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.MovieListViewHold
 
     private var list = emptyList<MovieResponse>()
 
-    inner class MovieListViewHolder(private val binding: ItemMovieListBinding):
+    inner class MovieListViewHolder(private val binding: ItemMovieListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            @SuppressLint("SetTextI18n")
-            fun bind(movie: MovieResponse){
-                binding.apply {
-                    Glide.with(imagePoster.context).load(movie.poster).into(imagePoster)
-                    textMovieTitle.text = movie.title
-                    textYear.text = "(${movie.year})"
-                    crdItem.setOnClickListener {
-                        val action = MovieListFragmentDirections
-                            .actionMovieListFragmentToMovieDetailFragment(movie.imdbID!!)
-                        it.findNavController().navigate(action)
-                    }
+        @SuppressLint("SetTextI18n")
+        fun bind(movie: MovieResponse) {
+            binding.apply {
+                Glide.with(imagePoster.context).load(movie.poster).into(imagePoster)
+                textMovieTitle.text = movie.title
+                textYear.text = "(${movie.year})"
+                crdItem.setOnClickListener {
+                    val action = MovieListFragmentDirections
+                        .actionMovieListFragmentToMovieDetailFragment(movie.imdbID!!)
+                    it.findNavController().navigate(action)
                 }
             }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
         val view = LayoutInflater.from(parent.context)
-        return MovieListViewHolder(ItemMovieListBinding.inflate(view,parent,false))
+        return MovieListViewHolder(ItemMovieListBinding.inflate(view, parent, false))
     }
 
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
@@ -44,7 +44,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.MovieListViewHold
     override fun getItemCount() = list.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setMovies(newList: List<MovieResponse>){
+    fun setMovies(newList: List<MovieResponse>) {
         list = newList
         notifyDataSetChanged()
     }

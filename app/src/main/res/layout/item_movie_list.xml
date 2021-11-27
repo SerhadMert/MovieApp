@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:id="@+id/crd_item"
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/crd_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
     android:elevation="10dp"
-    android:layout_marginBottom="1dp"
-    app:cardBackgroundColor="@color/color_background">
+    android:background="@color/color_background">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+   <androidx.cardview.widget.CardView
+       android:id="@+id/crd_poster"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:cardCornerRadius="20dp">
 
     <ImageView
         android:id="@+id/image_poster"
@@ -20,32 +25,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="10dp"/>
-
+        android:src="@drawable/ic_launcher_foreground"/>
+   </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/text_movie_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_poster"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/crd_poster"
+        app:layout_constraintStart_toStartOf="@+id/crd_poster"
+        app:layout_constraintEnd_toEndOf="@+id/crd_poster"
+        app:layout_constraintBottom_toTopOf="@+id/text_year"
+        android:textAlignment="center"
         android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/text_year"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@+id/text_movie_title"
-        app:layout_constraintStart_toEndOf="@+id/image_poster"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/crd_poster"
+        app:layout_constraintEnd_toEndOf="@+id/crd_poster"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="1dp"
         android:textColor="@color/white"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
