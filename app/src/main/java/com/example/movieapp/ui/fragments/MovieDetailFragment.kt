@@ -50,6 +50,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>
                         val img = it.poster?.replace("SX300.jpg","SX800.jpg")
                         val genre = it.genre?.replace(" ","")
                             ?.uppercase(Locale.getDefault())?.split(",")
+
                         binding.apply {
                             Glide.with(requireContext())
                                 .load(img)
