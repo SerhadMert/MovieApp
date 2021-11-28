@@ -2,13 +2,9 @@ package com.example.movieapp.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import com.example.movieapp.R
 import com.example.movieapp.base.BaseFragment
 import com.example.movieapp.databinding.FragmentMovieListBinding
 import com.example.movieapp.ui.adapter.MovieListAdapter
@@ -22,20 +18,16 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
 
     private val viewModel by viewModels<MovieListViewModel>()
     private val adapter by lazy { MovieListAdapter() }
-    private val searchText by lazy {
-        binding.searchView.findViewById<SearchView.SearchAutoComplete>(R.id.search_src_text)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initSearch()
-        initRV()
-        changeSV()
-        setActionBarTitle("Movies")
+        initViews()
     }
 
     private fun getMovies(title:String){
         viewModel.getMoviesByQuery(title).observe(viewLifecycleOwner,{response->
+            Log.d("response",response.toString())
             when(response.status){
                 Resource.Status.LOADING -> {
                     binding.apply {
@@ -47,15 +39,12 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
                 }
                 Resource.Status.SUCCESS ->{
                     binding.progressBar.gone()
-                    if(response.data?.search?.isNotEmpty() == true){
-                        response.data.let { it.search?.let { it1 -> adapter.setMovies(it1) } }
+                        response.data.let { it?.search?.let { it1 -> adapter.setMovies(it1) } }
                         binding.rvMovieList.show()
-                    } else{
-                        binding.lottieError.show()
-                    }
                 }
                 Resource.Status.ERROR -> {
-                    Toast.makeText(requireContext(), "${response.status}", Toast.LENGTH_SHORT).show()
+                    binding.lottieError.show()
+                    binding.progressBar.gone()
                     Log.d("getMovies", "${response.message}")
                 }
             }
@@ -89,12 +78,8 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
         })
     }
 
-    private fun initRV(){
+    private fun initViews(){
         binding.rvMovieList.adapter = adapter
-    }
-
-    private fun changeSV(){
-        searchText.setHintTextColor(resources.getColor(R.color.white))
-        searchText.setTextColor(resources.getColor(R.color.white))
+        setActionBarTitle("Movies")
     }
 }

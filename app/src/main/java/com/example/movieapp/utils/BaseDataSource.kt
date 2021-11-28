@@ -1,5 +1,6 @@
 package com.example.movieapp.utils
 
+import com.example.movieapp.data.models.movie.Movie
 import retrofit2.Response
 
 abstract class BaseDataSource {
@@ -8,7 +9,12 @@ abstract class BaseDataSource {
             val response = call()
             if (response.isSuccessful) {
                 val body = response.body()
-                if (body != null) return Resource.success(body)
+                val successCallError = Movie("False", null, null)
+                return if (body != null && !body.equals(successCallError) ) {
+                    Resource.success(body)
+                } else {
+                    Resource.error("Too many results")
+                }
             }
             val errorBody = response.errorBody().toString()
             return error("${response.code()} - $errorBody")

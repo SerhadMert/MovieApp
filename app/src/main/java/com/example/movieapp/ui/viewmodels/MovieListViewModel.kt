@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieapp.data.models.movie.Movie
 import com.example.movieapp.data.repository.Repository
-import com.example.movieapp.utils.Constants
 import com.example.movieapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
