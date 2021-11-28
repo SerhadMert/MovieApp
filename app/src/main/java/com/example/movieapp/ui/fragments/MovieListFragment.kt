@@ -31,7 +31,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>
         initSearch()
         initRV()
         changeSV()
-        setActionBarTitle("Movie Search")
+        setActionBarTitle("Movies")
     }
 
     private fun getMovies(title:String){
